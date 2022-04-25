@@ -1,13 +1,13 @@
 import React from "react";
 import Perfil from "../Perfil";
-import "./Campeones.css";
-
+import styles from "./Campeones.module.css";
 
 function Campeones() {
     const [data, setData] = React.useState();
     const [campeones, setCampeones] = React.useState();
     const [loading, setLoading] = React.useState(true);
     const [tagActual, setTagActual] = React.useState("Todos");
+    const [campeonesFiltrados, setCampeonesFiltrados] = React.useState();
     React.useEffect(() => {
         async function fetchData() {
             let summonername = "FlyingGecko048";
@@ -17,7 +17,9 @@ function Campeones() {
             response = await fetch("http://localhost/TFG/blitz/proyecto/public/obtenerCampeones");
             let campeones = await response.json();
             setCampeones(campeones);
+            setTagActual("Todos");
             setLoading(false);
+
         }
         fetchData();
 
@@ -29,13 +31,13 @@ function Campeones() {
     return (
         <div>
             <Perfil userData={data}></Perfil>
-            <div id="contenedor">
-                <div id="filtros">
-                    <select onChange={eventDificultad} id="dificultad" name="" className="select">
+            <div>
+                <div className={styles.filtros}>
+                    <select onChange={eventDificultad} id="dificultad" name="" className={styles.select}>
                         <option value="desc">Mas dificil primero</option>
                         <option value="asc">Mas facil primero</option>
                     </select>
-                    <div id="roles">
+                    <div className={styles.roles}>
                         <h1 onClick={pintar}>Todos</h1>
                         <h1 onClick={pintar} >Asesino</h1>
                         <h1 onClick={pintar}>Tanque</h1>
@@ -45,12 +47,15 @@ function Campeones() {
                         <h1 onClick={pintar}>Tirador</h1>
                     </div>
                 </div>
-                <div id="campeones">
-                    {campeones.map((campeon, index) => (
-                        <div key={index} className="campeon" style={{ backgroundImage: "url(" + process.env.REACT_APP_SPLASH + campeon[0] + ")" }}>
-                            <h1>Ahri</h1>
-                        </div>
-                    ))}
+                <div className={styles.campeones}>
+                    {campeones.filter(campeon=>campeon[2].includes(traduccion(tagActual)) || tagActual == "Todos").map((campeon, index) => {
+                        return (
+                            
+                            <div key={index} className={styles.campeon} style={{ backgroundImage: "url(" + process.env.REACT_APP_SPLASH + campeon[0] + ")" }}>
+                                <h1>{campeon[0].substring(0, campeon[0].length - 6)}</h1>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>
@@ -59,7 +64,6 @@ function Campeones() {
 
 
     function eventDificultad() {
-        let algo = document.getElementById("dificultad");
         ordenar(document.getElementById("dificultad"));
     }
     function ordenar(item) {
@@ -110,9 +114,11 @@ function Campeones() {
     }
     function pintar(tag) {
 
-        setTagActual(tag);
-        document.getElementById("campeones").innerHTML = "";
-        for (let i = 0; i < campeones.length; i++) {
+        setTagActual(tag.target.innerHTML);
+        // document.getElementById("campeones").innerHTML = "";
+        /*for (let i = 0; i < campeones.length; i++) {
+
+
             if (campeones[i][2].includes(traduccion(tag.target.innerHTML)) || tag.target.innerHTML == "Todos") {
                 let campeon = document.createElement("div");
                 campeon.className = "campeon";
@@ -125,33 +131,43 @@ function Campeones() {
                 campeon.style.backgroundImage = "url(" + process.env.REACT_APP_SPLASH + campeones[i][0] + ")";
                 document.getElementById("campeones").appendChild(campeon);
 
-                {campeones.map((campeon, index) => (
-                    <div key={index} className="campeon" style={{ backgroundImage: "url(" + process.env.REACT_APP_SPLASH + campeon[0] + ")" }}>
-                        <h1>Ahri</h1>
-                    </div>
-                ))}
+
             }
-        }
+        }*/
+        /*
+                let auxCampeones = <div>
+                    {campeones.map((campeon, index) => (
+                        campeon[2].includes(traduccion(tag.target.innerHTML)) || tag.target.innerHTML == "Todos" &&
+                         
+                    <div key={index} className="campeon" style={{ backgroundImage: "url(" + process.env.REACT_APP_SPLASH + campeon[0] + ")" }}>
+                        <h1>{campeon[0].substring(0, campeon[0].length - 6)}</h1>
+                    </div>
+                    ))}
+                </div>;
+                auxCampeones = campeones.filter(campeon => campeon[2].includes(traduccion(tag.target.innerHTML)) || tag.target.innerHTML == "Todos");
+                setCampeonesFiltrados(auxCampeones);*/
         subrayado(tag.target);
     }
 
-    function traduccion(tag) {
-        switch (tag) {
-            case "Luchador":
-                return "Fighter";
-            case "Mago":
-                return "Mage";
-            case "Tanque":
-                return "Tank";
-            case "Asesino":
-                return "Assassin";
-            case "Apoyo":
-                return "Support";
-            case "Tirador":
-                return "Marksman";
-        }
-    }
-
 }
+
+function traduccion(tag) {
+    switch (tag) {
+        case "Luchador":
+            return "Fighter";
+        case "Mago":
+            return "Mage";
+        case "Tanque":
+            return "Tank";
+        case "Asesino":
+            return "Assassin";
+        case "Apoyo":
+            return "Support";
+        case "Tirador":
+            return "Marksman";
+    }
+}
+
+
 
 export default Campeones;

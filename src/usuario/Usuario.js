@@ -2,7 +2,7 @@ import React from "react";
 import Partida from "./Partida";
 import Liga from "./Liga";
 import Perfil from "../Perfil";
-//import "./usuario.css";
+import "./usuario.css";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import CampeonesMasUsados from "./CampeonesMasUsados";
 
