@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import styles from "./perfil.module.css";
 
 function Perfil(props) {
     const [data, setData] = React.useState();
@@ -25,25 +25,25 @@ function Perfil(props) {
 
     return (
 
-        <div id="superior">
-                <div id="usuario">
-                    <div style={{ backgroundImage: "url(" + process.env.REACT_APP_ICONO + data.profileIconId + ".png)" }} id="imgUsuario">
+        <div className={styles.superior}>
+                <div className={styles.usuario}>
+                    <div style={{ backgroundImage: "url(" + process.env.REACT_APP_ICONO + data.profileIconId + ".png)" }} className={styles.imgUsuario}>
                         <p id="nivel">{data.summonerLevel}</p>
                     </div>
-                    <div id="nombreUsuario">
+                    <div className={styles.nombreUsuario}>
                         <h1>{data.name}</h1>
                     </div>
                 </div>
-                <div id="buscador">
-                    <form role="search">
-                        <label htmlFor="search">Search for stuff</label>
-                        <input id="search" type="search" placeholder="Search..." autoFocus required />
-                        <button type="submit">Go</button>
+                <div className={styles.buscador}>
+                    <form className={styles.formulario} role="search">
+                        <label className={styles.etiqueta} htmlFor="search">Search for stuff</label>
+                        <input className={styles.search} type="search" placeholder="Search..." autoFocus required />
+                        <button className={styles.boton} type="submit">Go</button>
                     </form>
                 </div>
 
                 <div id="login">
-                    <a id="inicioSesion" href="">Iniciar sesion</a>
+                    <a className={styles.inicioSesion} href="">Iniciar sesion</a>
 
                 </div>
             </div>

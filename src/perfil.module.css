@@ -1,0 +1,162 @@
+.usuario {
+    padding: 1% 0 1% 1%;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    width: 16%;
+    justify-content: space-between;
+}
+
+.imgUsuario {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-repeat: round;
+}
+
+.imgUsuario p {
+    color: #f3f3f3;
+    background-color: black;
+    border-radius: 1rem;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    margin-bottom: 3px;
+}
+
+.nombreUsuario {
+    padding-left: 2%;
+    color: white;
+
+}
+
+.superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+body {
+    background-color: #0e1015;
+}
+.inicioSesion{
+    font-size: 2rem;
+    color: #647575;
+    background-color: #181a20;
+    padding: 2rem;
+    border-radius: 3rem;
+}
+:root {
+    --rad: 0.7rem;
+    --dur: 0.3s;
+    --color-dark: #2f2f2f;
+    --color-light: #fff;
+    --color-brand: #57bd84;
+    --font-fam: "Lato", sans-serif;
+    --height: 5rem;
+    --btn-width: 6rem;
+    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    width: 55%;
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.formulario {
+    width: 100%;
+    position: relative;
+    background: #dda409;
+    border-radius: 3rem;
+    height: fit-content;
+}
+
+input,
+.boton {
+    height: var(--height);
+    font-family: var(--font-fam);
+    border: 0;
+    color: var(--color-dark);
+    font-size: 1.8rem;
+}
+
+.search {
+    outline: 0;
+    width: 100%;
+    background: #181a20;
+    padding: 0 1.6rem;
+    border-radius: 2rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: all var(--dur) var(--bez);
+    transition-property: width, border-radius;
+    z-index: 1;
+    position: relative;
+    color: #dda409;
+}
+
+.boton {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--btn-width);
+    font-weight: bold;
+    background: #dda409;
+    border-radius: 0 var(--rad) var(--rad) 0;
+}
+
+input:not(:-moz-placeholder-shown) {
+    border-radius: var(--rad) 0 0 var(--rad);
+    width: calc(100% - var(--btn-width));
+}
+
+input:not(:-ms-input-placeholder) {
+    border-radius: var(--rad) 0 0 var(--rad);
+    width: calc(100% - var(--btn-width));
+}
+
+input:not(:placeholder-shown) {
+    border-radius: var(--rad) 0 0 var(--rad);
+    width: calc(100% - var(--btn-width));
+}
+
+input:not(:-moz-placeholder-shown)+.boton {
+    display: block;
+}
+
+input:not(:-ms-input-placeholder)+.boton {
+    display: block;
+}
+
+input:not(:placeholder-shown)+.boton {
+    display: block;
+}
+
+.etiqueta {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
