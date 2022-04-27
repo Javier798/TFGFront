@@ -84,3 +84,6 @@ button {
 .roles :nth-child(1){
     border-bottom: 2px solid rgb(255, 255, 255);
 }
+.content{
+    margin-top: 21rem;
+}

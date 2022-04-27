@@ -14,7 +14,7 @@ const [hasMore, setHasMore] = React.useState(true);
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
-        document.body.style.backgroundColor = "#1B1B1B";
+        document.body.style.backgroundColor = "#0e1015";
         async function fetchData() {
 
             let summonername = "FlyingGecko048";

@@ -19,7 +19,6 @@ function Campeones() {
             setCampeones(campeones);
             setTagActual("Todos");
             setLoading(false);
-
         }
         fetchData();
 
@@ -29,7 +28,7 @@ function Campeones() {
     }
 
     return (
-        <div>
+        <div className={styles.content}>
             <Perfil userData={data}></Perfil>
             <div>
                 <div className={styles.filtros}>
@@ -65,6 +64,7 @@ function Campeones() {
 
     function eventDificultad() {
         ordenar(document.getElementById("dificultad"));
+        pintar(tagActual);
     }
     function ordenar(item) {
         let ordenacion = item.selectedOptions[0].innerHTML;
@@ -93,7 +93,6 @@ function Campeones() {
                     return 0;
             });
         }
-
         pintar(tagActual);
     }
     function subrayado(item) {
@@ -113,40 +112,14 @@ function Campeones() {
         }
     }
     function pintar(tag) {
-
-        setTagActual(tag.target.innerHTML);
-        // document.getElementById("campeones").innerHTML = "";
-        /*for (let i = 0; i < campeones.length; i++) {
-
-
-            if (campeones[i][2].includes(traduccion(tag.target.innerHTML)) || tag.target.innerHTML == "Todos") {
-                let campeon = document.createElement("div");
-                campeon.className = "campeon";
-                let nombre = document.createElement("h1");
-                nombre.innerHTML = campeones[i][0].substring(
-                    0,
-                    campeones[i][0].length - 6
-                );
-                campeon.appendChild(nombre);
-                campeon.style.backgroundImage = "url(" + process.env.REACT_APP_SPLASH + campeones[i][0] + ")";
-                document.getElementById("campeones").appendChild(campeon);
-
-
-            }
-        }*/
-        /*
-                let auxCampeones = <div>
-                    {campeones.map((campeon, index) => (
-                        campeon[2].includes(traduccion(tag.target.innerHTML)) || tag.target.innerHTML == "Todos" &&
-                         
-                    <div key={index} className="campeon" style={{ backgroundImage: "url(" + process.env.REACT_APP_SPLASH + campeon[0] + ")" }}>
-                        <h1>{campeon[0].substring(0, campeon[0].length - 6)}</h1>
-                    </div>
-                    ))}
-                </div>;
-                auxCampeones = campeones.filter(campeon => campeon[2].includes(traduccion(tag.target.innerHTML)) || tag.target.innerHTML == "Todos");
-                setCampeonesFiltrados(auxCampeones);*/
-        subrayado(tag.target);
+        
+        if(typeof tag == "string"){
+            
+        }else{
+            setTagActual(tag.target.innerHTML);
+            subrayado(tag.target);
+        }
+        
     }
 
 }

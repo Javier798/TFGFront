@@ -1,0 +1,66 @@
+
+.habilidades{
+    background-color: #261818;
+    width: 100vw;
+    padding-top: 5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nomHabilidades{
+    font-size: 11rem;
+    padding-left: 8rem;
+}
+
+.conteidoHabilidades {
+    display: flex;
+    align-items: flex-start;
+    gap: 5%;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 15rem;
+    position: relative;
+}
+
+.izquierdaHabilidades{
+    width: 45%;
+
+}
+.imgHabilidades{
+    display: flex;
+    gap: 5rem;
+    width: 100%;
+}
+.imgHabilidades img{
+    width: 10rem;
+    border: solid 1px #cb9d15;
+    transition: 0.5s;
+    padding: 0.5rem;
+}
+.imgHabilidades img:hover{
+    transform: translateY(-1rem);
+    cursor: pointer;
+}
+.descHabilidades{
+    width: 100%;
+}
+.descHabilidades p{
+    height: 100%;
+    width: 100%;
+    font-size: 3rem;
+}
+.videoHabilidades{
+    width: 45%;
+}
+
+.conteidoHabilidades::after {
+    content: "";
+    background: linear-gradient(#dd1c1c00, #261818 84%);
+    position: absolute;
+    left: 0;
+    bottom: -10%;
+    width: 100%;
+    height: 85%;
+}

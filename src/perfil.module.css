@@ -35,9 +35,14 @@
 }
 
 .superior {
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    background-color: #040a12;
+    top: 0;
 }
 
 body {
