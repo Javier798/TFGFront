@@ -8,6 +8,7 @@ function Campeones() {
     const [loading, setLoading] = React.useState(true);
     const [tagActual, setTagActual] = React.useState("Todos");
     const [campeonesFiltrados, setCampeonesFiltrados] = React.useState();
+
     React.useEffect(() => {
         async function fetchData() {
             let summonername = "FlyingGecko048";
@@ -93,6 +94,7 @@ function Campeones() {
                     return 0;
             });
         }
+        setCampeonesFiltrados(ordenacion);
         pintar(tagActual);
     }
     function subrayado(item) {
@@ -114,7 +116,7 @@ function Campeones() {
     function pintar(tag) {
         
         if(typeof tag == "string"){
-            
+            setTagActual(tag);
         }else{
             setTagActual(tag.target.innerHTML);
             subrayado(tag.target);

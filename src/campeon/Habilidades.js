@@ -27,7 +27,21 @@ function Habilidades(props) {
 
 
     if (loading) {
-        return <p>Loading...</p>;
+        return (
+            <div className={styles.habilidades}>
+                <h1 className={styles.nomHabilidades}>Habilidades</h1>
+                <div className={styles.conteidoHabilidades}>
+                    <div className={styles.izquierdaHabilidades}>
+                        <div className={styles.imgHabilidades}>
+                        </div>
+                        <div className={styles.descHabilidades}>
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        );
     }
 
 
@@ -44,7 +58,7 @@ function Habilidades(props) {
                         <img src={process.env.REACT_APP_SPELL+seleccsionarHabilidad(4)+".png"} onClick={cambiarVideoHabilidades} id="4" alt="" />
                     </div>
                     <div className={styles.descHabilidades}>
-                        <p>descr</p>
+                        <p>{passive.description}</p>
                     </div>
                 </div>
                 <video className={styles.videoHabilidades} controls src={process.env.REACT_APP_HABILIDADES + "AatroxE.webm"}></video>
@@ -54,7 +68,11 @@ function Habilidades(props) {
     function cambiarVideoHabilidades(item) {
         let imagenes = item.target.parentElement;
         for (let j = 0; j < imagenes.children.length; j++) {
-            imagenes.children[j].style.transform = "translateY(0)";
+            if(imagenes.children[j].style.transform!=""){
+                imagenes.children[j].style.transform = "translateY(0)";
+                imagenes.children[j].style.transform="";
+            }
+            
         }
         item.target.style.transform = "translateY(-5rem)";
         item.target.parentElement.parentElement.children[1].children[0].innerHTML = habilidades[imagenes.children[item.target.id].id - 1].description;
@@ -64,7 +82,11 @@ function Habilidades(props) {
     function cambiarVideoPassiva(item) {
         let imagenes = item.target.parentElement;
         for (let j = 0; j < imagenes.children.length; j++) {
-            imagenes.children[j].style.transform = "translateY(0)";
+            if(imagenes.children[j].style.transform!=""){
+                imagenes.children[j].style.transform = "translateY(0)";
+                imagenes.children[j].style.transform="";
+            }
+            
         }
         item.target.style.transform = "translateY(-5rem)";
         item.target.parentElement.parentElement.children[1].children[0].innerHTML = passive.description;

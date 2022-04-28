@@ -7,7 +7,7 @@
     gap: 3rem;
     /* background-image: url("../../public/splash/Aatrox_1.jpg"); */
     padding: 2%;
-    height: 1235px;
+    /* height: 1235px; */
     align-items: center;
 }
 .skin{
@@ -15,7 +15,7 @@
     align-items: center;
     color: white;
     font-size: 2em;
-    gap: 1%;
+    gap: 5%;
 }
 .skin img{
     width: 100px;
@@ -25,18 +25,22 @@
     font-size: 11rem;
     padding-left: 8rem;
     color: white;
+    margin-top: 0px;
 }
 .fondo{
-    position: absolute;
+    /* position: absolute; */
     z-index: -1;
     width: 80%;
 }
 .contenedorSkins{
-    width: 80%;
-    height: 100%;
+          /* width: 75%; */
+    height: 90%;
     display: flex;
     flex-direction: column;
     gap: 4%;
+    position: absolute;
+    left: 12%;
+    overflow-y: scroll;
 }
 .sectionSkins{
     

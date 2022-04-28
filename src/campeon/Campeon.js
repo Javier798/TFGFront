@@ -37,7 +37,7 @@ function Campeon(props) {
             <Perfil userData={data}></Perfil>
             <ImgCampeon></ImgCampeon>
             <Habilidades champion={champion}></Habilidades>
-            <Skins></Skins>
+            <Skins campeon={champion}></Skins>
         </div>
 
         
