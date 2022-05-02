@@ -39,43 +39,26 @@ function Skins(props) {
         <div className={styles.sectionSkins}>
             <h2 className={styles.tituloSkins}>Aspectos</h2>
             <div className={styles.skins}>
-                <img className={styles.fondo} src={process.env.REACT_APP_SPLASH + "Aatrox_1.jpg"} alt="" />
+                <img className={styles.fondo} id="fondoSkins" src={process.env.REACT_APP_SPLASH + skins[0][0]} alt="" />
                 <div className={styles.contenedorSkins}>
 
                     {skins.map((value, key) => {
                         return (
-                            <div key={key} className={styles.skin}>
+                            <div onClick={cambiarImagen} key={key} className={styles.skin}>
                                 <img src={process.env.REACT_APP_SPLASH + value[0]} alt="" />
                                 <h3 className={styles.nomSkin}>{value[1]}</h3>
                             </div>
                         );
                     })}
-
-                    {/* <div className={styles.skin}>
-                        <img src={process.env.REACT_APP_TILES + "Aatrox_1.jpg"} alt="" />
-                        <h3 className={styles.nomSkin}>Aatrox luna sangrienta</h3>
-                    </div>
-                    <div className={styles.skin}>
-                        <img src={process.env.REACT_APP_TILES + "Aatrox_1.jpg"} alt="" />
-                        <h3 className={styles.nomSkin}>Aatrox luna sangrienta</h3>
-                    </div>
-                    <div className={styles.skin}>
-                        <img src={process.env.REACT_APP_TILES + "Aatrox_1.jpg"} alt="" />
-                        <h3 className={styles.nomSkin}>Aatrox luna sangrienta</h3>
-                    </div>
-                    <div className={styles.skin}>
-                        <img src={process.env.REACT_APP_TILES + "Aatrox_1.jpg"} alt="" />
-                        <h3 className={styles.nomSkin}>Aatrox luna sangrienta</h3>
-                    </div>
-                    <div className={styles.skin}>
-                        <img src={process.env.REACT_APP_TILES + "Aatrox_1.jpg"} alt="" />
-                        <h3 className={styles.nomSkin}>Aatrox luna sangrienta</h3>
-                    </div> */}
                 </div>
 
             </div>
         </div>
     );
+    function cambiarImagen(item){
+        let img = item.currentTarget.children[0].src;
+        document.getElementById("fondoSkins").src=img;
+    }
 }
 
 export default Skins;

@@ -11,8 +11,8 @@ function Campeones() {
 
     React.useEffect(() => {
         async function fetchData() {
-            let summonername = "FlyingGecko048";
-            let response = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonername + "?api_key=" + process.env.REACT_APP_APIKEY);
+            
+            let response = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + localStorage.getItem("nombreInvocador") + "?api_key=" + process.env.REACT_APP_APIKEY);
             let userData = await response.json();
             setData(userData);
             response = await fetch("http://localhost/TFG/blitz/proyecto/public/obtenerCampeones");
@@ -51,7 +51,7 @@ function Campeones() {
                     {campeones.filter(campeon=>campeon[2].includes(traduccion(tagActual)) || tagActual == "Todos").map((campeon, index) => {
                         return (
                             
-                            <div key={index} className={styles.campeon} style={{ backgroundImage: "url(" + process.env.REACT_APP_SPLASH + campeon[0] + ")" }}>
+                            <div onClick={redirigir(campeon[3])} key={index} className={styles.campeon} style={{ backgroundImage: "url(" + process.env.REACT_APP_SPLASH + campeon[0] + ")" }}>
                                 <h1>{campeon[0].substring(0, campeon[0].length - 6)}</h1>
                             </div>
                         )
@@ -62,7 +62,11 @@ function Campeones() {
     );
 
 
-
+function redirigir(campeon) {
+    return () => {
+        window.location.href = "/campeon/" + campeon;
+    }
+}
     function eventDificultad() {
         ordenar(document.getElementById("dificultad"));
         pintar(tagActual);

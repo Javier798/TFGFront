@@ -27,7 +27,7 @@ function Inicio() {
             <h1 id="titulo">LEAGUE STATS</h1>
             <form className={styles.formuilario} onSubmit={enviar}>
                 <label className={styles.etiqueta} htmlFor="search">Search</label>
-                <input className={styles.search} type="search" placeholder="Search..." autoFocus required />
+                <input id="search" className={styles.search} type="search" placeholder="Search..." autoFocus required />
                 <span className={styles.caret}></span>
             </form>
         </div>
@@ -35,7 +35,7 @@ function Inicio() {
     
     function enviar(event) {
         event.preventDefault();
-        window.location.href = "/campeones";
+        window.location.href = "/usuario/"+document.getElementById("search").value;
     }
 }
 

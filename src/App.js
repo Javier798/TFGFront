@@ -28,11 +28,11 @@ function App() {
           </Link>
         </header>
         <Routes>
-          <Route path="/usuario" element={<Usuario/>} />
+          <Route path="/usuario/:summonername" element={<Usuario/>} />
           <Route path="/" element={<p>Home</p>} />
           <Route path="/inicio" element={<Inicio></Inicio>} />
           <Route path="/campeones/*" element={<Campeones></Campeones>} />
-          <Route path="/campeon" element={<Campeon></Campeon>} />
+          <Route path="/campeon/:id" element={<Campeon></Campeon>} />
         </Routes>
       </div>
     </BrowserRouter>

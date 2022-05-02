@@ -5,6 +5,8 @@ import Perfil from "../Perfil";
 import "./usuario.css";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import CampeonesMasUsados from "./CampeonesMasUsados";
+import { useParams } from "react-router-dom";
+
 
 function Usuario() {
     const [data, setData] = React.useState();
@@ -12,12 +14,12 @@ function Usuario() {
 const [scroll, setScroll] = React.useState(10);
 const [hasMore, setHasMore] = React.useState(true);
     const [loading, setLoading] = React.useState(true);
+    const { summonername } =useParams();
 
     React.useEffect(() => {
         document.body.style.backgroundColor = "#0e1015";
-        async function fetchData() {
-
-            let summonername = "FlyingGecko048";
+        async function fetchData() {            
+localStorage.setItem("nombreInvocador",summonername);
             //console.log("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonername + "?api_key=" + process.env.REACT_APP_APIKEY);
             let response = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonername + "?api_key=" + process.env.REACT_APP_APIKEY);
             let userData = await response.json();
@@ -81,10 +83,6 @@ const [hasMore, setHasMore] = React.useState(true);
                             <Partida key={index} id={partida}></Partida>
                         ))}
                         </InfiniteScroll>
-
-                        {/* {partidas.map((partida, index) => (
-                            <Partida key={index} id={partida}></Partida>
-                        ))} */}
                     </div>}
                 </div>
             </div>

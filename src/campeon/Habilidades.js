@@ -8,16 +8,12 @@ function Habilidades(props) {
     const [loading, setLoading] = React.useState(true);
     React.useEffect(() => {
         async function fetchData() {
-            let summonername = "FlyingGecko048";
-            let response = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonername + "?api_key=" + process.env.REACT_APP_APIKEY);
-            let userData = await response.json();
+            
             setChampion(props.champion);
-            response = await fetch("http://localhost/TFG/blitz/proyecto/public/jsonreader/266/spells");
-            let habilidades = await response.json();
-            setHabilidades(habilidades);
-            response = await fetch("http://localhost/TFG/blitz/proyecto/public/jsonreader/266/passive");
-            let pasiva = await response.json();
-            setPassive(pasiva);
+            
+            setHabilidades(props.champion.spells);
+            
+            setPassive(props.champion.passive);
             setLoading(false);
 
         }
@@ -51,17 +47,19 @@ function Habilidades(props) {
             <div className={styles.conteidoHabilidades}>
                 <div className={styles.izquierdaHabilidades}>
                     <div className={styles.imgHabilidades}>
-                        <img src={process.env.REACT_APP_PASSIVE+seleccsionarHabilidad(0)+".png"} onClick={cambiarVideoPassiva} id="0" alt="" />
-                        <img src={process.env.REACT_APP_SPELL+seleccsionarHabilidad(1)+".png"} onClick={cambiarVideoHabilidades} id="1" alt="" />
-                        <img src={process.env.REACT_APP_SPELL+seleccsionarHabilidad(2)+".png"} onClick={cambiarVideoHabilidades} id="2" alt="" />
-                        <img src={process.env.REACT_APP_SPELL+seleccsionarHabilidad(3)+".png"} onClick={cambiarVideoHabilidades} id="3" alt="" />
-                        <img src={process.env.REACT_APP_SPELL+seleccsionarHabilidad(4)+".png"} onClick={cambiarVideoHabilidades} id="4" alt="" />
+                        <img src={process.env.REACT_APP_PASSIVE+passive.image.full} onClick={cambiarVideoPassiva} id="0" alt="" />
+                        <img src={process.env.REACT_APP_SPELL+habilidades[0].image.full} onClick={cambiarVideoHabilidades} id="1" alt="" />
+                        <img src={process.env.REACT_APP_SPELL+habilidades[1].image.full} onClick={cambiarVideoHabilidades} id="2" alt="" />
+                        <img src={process.env.REACT_APP_SPELL+habilidades[2].image.full} onClick={cambiarVideoHabilidades} id="3" alt="" />
+                        <img src={process.env.REACT_APP_SPELL+habilidades[3].image.full} onClick={cambiarVideoHabilidades} id="4" alt="" />
                     </div>
                     <div className={styles.descHabilidades}>
                         <p>{passive.description}</p>
                     </div>
                 </div>
-                <video className={styles.videoHabilidades} controls src={process.env.REACT_APP_HABILIDADES + "AatroxE.webm"}></video>
+                {passive.image.video.split(".")[1]=="webm" ? <video className={styles.videoHabilidades} controls src={process.env.REACT_APP_HABILIDADES + passive.image.video}></video>: <img id="imageneHabilidades" className={styles.videoHabilidades} src={process.env.REACT_APP_HABILIDADES + passive.image.video}/>}
+                
+                
             </div>
         </div>
     );
@@ -77,7 +75,7 @@ function Habilidades(props) {
         item.target.style.transform = "translateY(-5rem)";
         item.target.parentElement.parentElement.children[1].children[0].innerHTML = habilidades[imagenes.children[item.target.id].id - 1].description;
         let video = item.target.parentElement.parentElement.parentElement.children[1];
-        video.src = process.env.REACT_APP_HABILIDADES + seleccsionarHabilidad(imagenes.children[item.target.id].id) + ".webm";
+        video.src = process.env.REACT_APP_HABILIDADES + habilidades[item.target.id-1].image.video;
     }
     function cambiarVideoPassiva(item) {
         let imagenes = item.target.parentElement;
@@ -91,25 +89,7 @@ function Habilidades(props) {
         item.target.style.transform = "translateY(-5rem)";
         item.target.parentElement.parentElement.children[1].children[0].innerHTML = passive.description;
         let video = item.target.parentElement.parentElement.parentElement.children[1];
-        video.src = process.env.REACT_APP_HABILIDADES + seleccsionarHabilidad(imagenes.children[item.target.id].id) + ".webm";
-    }
-    function seleccsionarHabilidad(id) {
-        id += "";
-        switch (id) {
-            case "0":
-                return champion.image.full.split(".")[0] + "P";
-            case "1":
-                return champion.image.full.split(".")[0] + "Q"
-            case "2":
-                return champion.image.full.split(".")[0] + "W"
-            case "3":
-                return champion.image.full.split(".")[0] + "E"
-            case "4":
-                return champion.image.full.split(".")[0] + "R"
-
-            default:
-                break;
-        }
+        video.src = process.env.REACT_APP_HABILIDADES + passive.image.video;
     }
 }
 
