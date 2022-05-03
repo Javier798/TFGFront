@@ -66,6 +66,6 @@ function obtenerMaestria(nivel) {
         return "maestria2.png";
       case 1:
         return "maestria1.png";
-  
+
     }
   }

@@ -5,10 +5,11 @@ function Skins(props) {
     const [data, setData] = React.useState();
     const [loading, setLoading] = React.useState(true);
     const [skins, setSkins] = React.useState(true);
+    const [skin, setSkin] = React.useState();
     React.useEffect(() => {
         async function fetchData() {
             let summonername = "FlyingGecko048";
-            let response = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonername + "?api_key=" + process.env.REACT_APP_APIKEY);
+            let response = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + localStorage.getItem("nombreInvocador") + "?api_key=" + process.env.REACT_APP_APIKEY);
             let userData = await response.json();
 
             setData(userData);
@@ -21,7 +22,7 @@ function Skins(props) {
                 }
             }
             setSkins(skinsAux);
-
+            setSkin(process.env.REACT_APP_SPLASH+skinsAux[0][0]);
             setLoading(false);
 
         }
@@ -39,7 +40,7 @@ function Skins(props) {
         <div className={styles.sectionSkins}>
             <h2 className={styles.tituloSkins}>Aspectos</h2>
             <div className={styles.skins}>
-                <img className={styles.fondo} id="fondoSkins" src={process.env.REACT_APP_SPLASH + skins[0][0]} alt="" />
+                <img className={styles.fondo} id="fondoSkins" src={skin} alt="" />
                 <div className={styles.contenedorSkins}>
 
                     {skins.map((value, key) => {
@@ -56,8 +57,9 @@ function Skins(props) {
         </div>
     );
     function cambiarImagen(item){
-        let img = item.currentTarget.children[0].src;
-        document.getElementById("fondoSkins").src=img;
+        setSkin(item.currentTarget.children[0].src);
+        //let img = item.currentTarget.children[0].src;
+        //document.getElementById("fondoSkins").src = item.currentTarget.children[0].src;
     }
 }
 

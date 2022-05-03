@@ -1,68 +1,67 @@
-
 #izquierda {
-
-    width: 25%;
+  width: 25%;
 }
 
 #liga {
-    padding: 10%;
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
-    border: solid 1px white;
+  padding: 10%;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  border: solid 1px white;
+  margin-bottom: 4rem;
 }
-.posicionimg{
-    width: 50px;
+.posicionimg {
+  width: 50px;
 }
 #nombreLiga {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-
 #nombreLiga h1 {
-    color: white;
+  color: white;
 }
 
 #contenedor {
-    display: flex;
-    justify-content: flex-start;
+      display: flex;
     gap: 10%;
     margin-top: 21rem;
+    justify-content: space-around;
 }
 
 .victoria {
-    color: #dda409 !important;
+  color: #dda409 !important;
 }
-.puntos{
-    width: 90px;
+.puntos {
+  width: 90px;
 }
 .derrota {
-    color: #c91212 !important;
+  color: #c91212 !important;
 }
 
 .partida {
-    display: flex;
-    justify-content: space-around;
-    padding-top: 1%;
-    background-color: #181a20;
-    margin-bottom: 10px;
-    border-radius: 2rem;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1%;
+  background-color: #181a20;
+  margin-bottom: 10px;
+  border-radius: 2rem;
+  align-items: center;
 }
 
 .imgPartida {
-    width: 100px !important;
-    height: 100px;
-    background-color: blue;
-    background-repeat: round;
+  width: 100px !important;
+  height: 100px;
+  background-color: blue;
+  background-repeat: round;
 }
 
-.partida h1, h2 {
-    color: white;
+.partida h1,
+h2 {
+  color: white;
 }
 
 #derecha {
-    width: 47%;
+  width: 47%;
 }
 
 .campeon {
@@ -71,84 +70,178 @@
     padding: 4%;
     align-items: center;
     justify-content: space-between;
+    background-color: #181a20;
+    border-radius: 2rem;
+    margin: 10px;
 }
 
 .imgCampeon {
-    width: 70px;
-    height: 70px;
-    background-color: azure;
-    background-repeat: round;
+  width: 70px;
+  height: 70px;
+  background-color: azure;
+  background-repeat: round;
 }
 
 #campeonesMasUsados {
-    border: solid 1px white;
-    height: 440px;
-    overflow-y: scroll;
+  border: solid 1px white;
+  height: 440px;
+  overflow-y: scroll;
 }
 
 #campeonesMasUsados::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 
 #campeonesMasUsados::-webkit-scrollbar-track {
-    background: #181a20;
+  background: #181a20;
 }
 
 #campeonesMasUsados::-webkit-scrollbar-thumb {
-    background-color: #0e1015;
-    border-radius: 20px;
-    border: 3px solid #dd9718;
+  background-color: #0e1015;
+  border-radius: 20px;
+  border: 3px solid #dd9718;
 }
 
-
-.item img{
-    width: 50px;
+.item img {
+  width: 50px;
 }
 
 .partidas::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 
 .partidas::-webkit-scrollbar-track {
-    background: #181a20;
+  background: #181a20;
 }
 
 .partidas::-webkit-scrollbar-thumb {
-    background-color: #0e1015;
-    border-radius: 20px;
-    border: 3px solid #dd9718;
+  background-color: #0e1015;
+  border-radius: 20px;
+  border: 3px solid #dd9718;
 }
-.contenidoPartida{
-    padding-bottom: 2rem;
+.contenidoPartida {
+  padding-bottom: 2rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
 }
-.items{
-    display: flex;
+.items {
+  display: flex;
 }
-.datosPartida{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+.datosPartida {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
-.item{
-    border: solid 1px #dd9718;
-    margin: 2px;
+.item {
+  border: solid 1px #dd9718;
+  margin: 2px;
 }
 .datosPartida div {
-
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .partidas {
-    height: 657px;
+  height: 657px;
 
-    padding: 1rem;
+  padding: 1rem;
 }
 
 #imgLiga img {
-    width: 190px;
-    height: 145px;
+  width: 190px;
+  height: 145px;
+}
+@media (max-width: 1450px) {
+  #contenedor {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10%;
+    margin-top: 21rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+  }
+
+  #campeonesMasUsados {
+    border: solid 1px white;
+    height: 325px;
+    overflow-y: scroll;
+    width: 50%;
+  }
+  #izquierda {
+        width: 93%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6rem;
+  }
+  #derecha {
+    width: 100%;
+  }
+  #liga {
+    padding: 2%;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    border: solid 1px white;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 820px) {
+ #izquierda {
+        width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 6rem;
+  }
+  #derecha {
+    width: 100%;
+  }
+  #campeonesMasUsados {
+    border: solid 1px white;
+    height: 325px;
+    overflow-y: scroll;
+    width: 100%;
+  }
+  #liga {
+    padding: 2%;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    border: solid 1px white;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 6rem;
+  }
+}
+@media(max-width :735px){
+  .items{
+      display: none;
+  }
+  .contenidoPartida{
+          padding-bottom: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    display: flex;
+    width: 50%;
+  }
+  .partida{
+          display: flex;
+    justify-content: space-around;
+    padding-top: 1%;
+    background-color: #181a20;
+    margin-bottom: 10px;
+    border-radius: 2rem;
+    align-items: center;
+    width: 492px;
+    overflow-x: scroll;
+  }
+  .partidas{
+      padding: 0;
+  }
 }

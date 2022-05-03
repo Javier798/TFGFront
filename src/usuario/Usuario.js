@@ -18,7 +18,7 @@ const [hasMore, setHasMore] = React.useState(true);
 
     React.useEffect(() => {
         document.body.style.backgroundColor = "#0e1015";
-        async function fetchData() {            
+        async function fetchData() {
 localStorage.setItem("nombreInvocador",summonername);
             //console.log("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonername + "?api_key=" + process.env.REACT_APP_APIKEY);
             let response = await fetch("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonername + "?api_key=" + process.env.REACT_APP_APIKEY);
@@ -31,7 +31,7 @@ localStorage.setItem("nombreInvocador",summonername);
             let partidasAux = [];
             for (let i = 0; i < 10; i++) {
                 partidasAux.push(partidasID[i]);
-                
+
             }
             setPartidas(partidasID);
             setLoading(false);
@@ -76,7 +76,7 @@ localStorage.setItem("nombreInvocador",summonername);
                             hasMore={hasMore}
                             loader={<h4>Loading...</h4>}
                             scrollableTarget="this"
-                            height={"657px"}
+                            height={"718px"}
                             className="partidas"
                         >
                             {scroll.map((partida, index) => (

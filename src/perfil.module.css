@@ -1,10 +1,10 @@
 .usuario {
-    padding: 1% 0 1% 1%;
+        padding: 1% 0 1% 1%;
     margin: 0px;
     display: flex;
     align-items: center;
-    width: 16%;
-    justify-content: space-between;
+    width: 25%;
+    justify-content: space-around;
 }
 
 .imgUsuario {
@@ -164,4 +164,18 @@ input:not(:placeholder-shown)+.boton {
     height: 1px;
     width: 1px;
     overflow: hidden;
+}
+@media (max-width: 850px) {
+    .buscador {
+        width: 90%;
+    }
+    .usuario{
+        display: none;
+    }
+    .inicioSesion{
+        display: none;
+    }
+    .superior{
+        justify-content: center;
+    }
 }
