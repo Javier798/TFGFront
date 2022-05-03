@@ -1,5 +1,5 @@
 .usuario {
-        padding: 1% 0 1% 1%;
+    padding: 1% 0 1% 1%;
     margin: 0px;
     display: flex;
     align-items: center;
@@ -28,6 +28,11 @@
     margin-bottom: 3px;
 }
 
+.menu {
+    width: 40px;
+    display: none;
+}
+
 .nombreUsuario {
     padding-left: 2%;
     color: white;
@@ -48,13 +53,15 @@
 body {
     background-color: #0e1015;
 }
-.inicioSesion{
+
+.inicioSesion {
     font-size: 2rem;
     color: #647575;
     background-color: #181a20;
     padding: 2rem;
     border-radius: 3rem;
 }
+
 :root {
     --rad: 0.7rem;
     --dur: 0.3s;
@@ -165,17 +172,88 @@ input:not(:placeholder-shown)+.boton {
     width: 1px;
     overflow: hidden;
 }
-@media (max-width: 850px) {
+
+.menuHamburguesa {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;
+    height: 100vh;
+    background-color: #0000007d;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding-top: 4rem;
+}
+.nombreHamburguesa{
+    color: #dda409;
+}
+.usuarioHamburguesa {
+    padding: 1% 0 1% 1%;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    width: 25%;
+    justify-content: space-around;
+}
+
+.imgUsuarioHamburguesa {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-repeat: round;
+}
+.inicioSesionHamburguesa{
+    font-size: 2rem;
+    color: #647575;
+    background-color: #181a20;
+    padding: 2rem;
+    border-radius: 3rem;
+    display: none;
+    color: #dda409;
+}
+.imgUsuarioHamburguesa p{
+    color: #f3f3f3;
+    background-color: black;
+    border-radius: 1rem;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    margin-bottom: 3px;
+}
+@media (max-width: 1010px) {
     .buscador {
-        width: 90%;
+        width: 80%;
     }
-    .usuario{
+
+    .usuario {
         display: none;
     }
-    .inicioSesion{
+
+    .inicioSesion {
         display: none;
     }
-    .superior{
+
+    .superior {
         justify-content: center;
+        gap: 6%;
+    }
+
+    .menu {
+        display: flex;
+        cursor: pointer;
+    }
+    .inicioSesionHamburguesa{
+        display: block;
+    }
+}
+@media (min-width: 1010px) {
+    .menu {
+        display: none;
     }
 }
