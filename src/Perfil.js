@@ -6,12 +6,12 @@ function Perfil(props) {
     const [loading, setLoading] = React.useState(true);
     React.useEffect(() => {
         async function fetchData() {
-            
-            
+
+
             setData(props.userData);
-            
+
             setLoading(false);
-            
+
         }
         fetchData();
 
@@ -35,9 +35,9 @@ function Perfil(props) {
                     </div>
                 </div>
                 <div className={styles.buscador}>
-                    <form className={styles.formulario} role="search">
+                    <form className={styles.formulario} onSubmit={redirigir} role="search">
                         <label className={styles.etiqueta} htmlFor="search">Search for stuff</label>
-                        <input className={styles.search} type="search" placeholder="Search..." autoFocus required />
+                        <input id="search" className={styles.search} type="search" placeholder="Search..." autoFocus required />
                         <button className={styles.boton} type="submit">Go</button>
                     </form>
                 </div>
@@ -48,6 +48,10 @@ function Perfil(props) {
                 </div>
             </div>
     );
+    function redirigir(event) {
+        event.preventDefault();
+        window.location.href = "/usuario/" + document.getElementById("search").value;
+    }
 }
 
 export default Perfil;

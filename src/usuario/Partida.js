@@ -9,12 +9,12 @@ function Partida(props) {
     const [campeon, setCampeon] = React.useState();
     React.useEffect(() => {
         async function fetchData() {
-            
-            let summonername = "FlyingGecko048";
+
+            let summonername = localStorage.getItem("nombreInvocador")
             //random between 0 and 3
             let random = Math.floor(Math.random() * 0.5);
             //await new Promise(resolve => setTimeout(resolve, random * 1000));
-            
+
             let response = await fetch("https://europe.api.riotgames.com/lol/match/v5/matches/" + props.id + "?api_key=" + process.env.REACT_APP_APIKEY);
             let partidaContenido = await response.json();
             setPartida(partidaContenido);
@@ -22,12 +22,12 @@ function Partida(props) {
             setJugadaActual(jugadaActualAux);
             let itemsAux = [jugadaActualAux.item0, jugadaActualAux.item1, jugadaActualAux.item2, jugadaActualAux.item3, jugadaActualAux.item4, jugadaActualAux.item5, jugadaActualAux.item6];
             setItems(itemsAux);
-            
+
             response = await fetch("http://localhost/TFG/blitz/proyecto/public/jsonreader/"+jugadaActualAux.championId+"/image");
             let champion = await response.json();
                         setCampeon(champion);
             setLoading(false);
-            
+
         }
         fetchData();
 
@@ -48,8 +48,8 @@ function Partida(props) {
             <div className="contenidoPartida">
                 <div className="datosPartida">
                     <div className="resultado">
-                        <h1 className={jugadorActual.win === "Win" ? "victoria" : "derrota"}>
-                            {jugadorActual.win === "Win" ? "Victoria" : "Derrota"}
+                        <h1 className={jugadorActual.win ? "victoria" : "derrota"}>
+                            {jugadorActual.win ? "Victoria" : "Derrota"}
                         </h1>
                         <h2>{jugadorActual.kills + "/" + jugadorActual.deaths + "/" + jugadorActual.assists}</h2>
                     </div>
