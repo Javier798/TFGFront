@@ -50,7 +50,16 @@ button {
     border-radius: 0 var(--rad) var(--rad) 0;
 }
 
-
+.selectRol{
+    display: none;
+    background-color: #181a20;
+    color: #cda618;
+    border-radius: 2rem;
+    padding: 1rem;
+    appearance: none;
+    text-align: center;
+    cursor: pointer;
+}
 .select {
     background-color: #181a20;
     color: #cda618;
@@ -86,4 +95,20 @@ button {
 }
 .content{
     margin-top: 21rem;
+}
+@media(max-width:1000px){
+    .selectRol{
+        display: block;
+        width: 50%;
+    }
+    .roles{
+        display: none;
+        width: 20%;
+    }
+    .select{
+        width: 50%;
+    }
+    .campeon{
+        width: 310px;
+    }
 }

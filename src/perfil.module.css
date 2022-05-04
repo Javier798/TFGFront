@@ -56,9 +56,9 @@ body {
 
 .inicioSesion {
     font-size: 2rem;
-    color: #647575;
+    color: #dd9718;
     background-color: #181a20;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 3rem;
 }
 
@@ -177,14 +177,15 @@ input:not(:placeholder-shown)+.boton {
     z-index: 3;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -55%;
     width: 55%;
     height: 100vh;
     background-color: #0000007d;
     flex-direction: column;
     align-items: center;
-    display: none;
+    display: flex;
     padding-top: 4rem;
+    transition: 1s;
 }
 .nombreHamburguesa{
     color: #dda409;

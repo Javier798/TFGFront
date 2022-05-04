@@ -37,6 +37,15 @@ function Campeones() {
                         <option value="desc">Mas dificil primero</option>
                         <option value="asc">Mas facil primero</option>
                     </select>
+                    <select onChange={pintar} id="rolSelect" name="" className={styles.selectRol}>
+                        <option value="desc">Todos</option>
+                        <option value="desc">Asesino</option>
+                        <option value="desc">Tanque</option>
+                        <option value="desc">Luchador</option>
+                        <option value="desc">Mago</option>
+                        <option value="asc">Apoyo</option>
+                        <option value="asc">Tirador</option>
+                    </select>
                     <div className={styles.roles}>
                         <h1 onClick={pintar}>Todos</h1>
                         <h1 onClick={pintar} >Asesino</h1>
@@ -121,6 +130,9 @@ function redirigir(campeon) {
         
         if(typeof tag == "string"){
             setTagActual(tag);
+        }else if(tag.target.nodeName.toLowerCase()=="select"){
+            setTagActual(tag.target.selectedOptions[0].innerHTML);
+            //subrayado(tag.target);
         }else{
             setTagActual(tag.target.innerHTML);
             subrayado(tag.target);

@@ -12,7 +12,7 @@ function Perfil(props) {
                 /*2. Si el div con id clickbox contiene a e. target*/
                 if (!document.getElementById('menuHamburguesa').contains(e.target)&&document.getElementById('accesoHamburguesa').id!==e.target.id) {
                     console.log(e.target);
-                    menu.style.display = "none";
+                    menu.style.left = "-55%";
                     acceso.style.display = "block";
                 }
             })
@@ -71,11 +71,12 @@ function Perfil(props) {
             </div>
         </div>
     );
+
     function hamburguesa(e) {
         let menu = document.getElementById("menuHamburguesa");
         let acceso = document.getElementById("accesoHamburguesa");
         if (menu.style.display === "none"||menu.style.display === "") {
-            menu.style.display = "flex";
+            menu.style.left = "0";
             acceso.style.display = "none";
         } 
     }
