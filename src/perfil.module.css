@@ -255,6 +255,6 @@ input:not(:placeholder-shown)+.boton {
 }
 @media (min-width: 1010px) {
     .menu {
-        display: none;
+        display: none !important;
     }
 }

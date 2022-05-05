@@ -241,8 +241,11 @@ h2 {
     margin-bottom: 10px;
     border-radius: 2rem;
     align-items: center;
-    width: 492px;
+    width: 595px;
     overflow-x: scroll;
+  }
+  .campeon{
+    width: 584px;
   }
   .partidas{
       padding: 0;

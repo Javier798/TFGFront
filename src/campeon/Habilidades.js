@@ -31,7 +31,7 @@ function Habilidades(props) {
                         <div className={styles.imgHabilidades}>
                         </div>
                         <div className={styles.descHabilidades}>
-                           
+
                         </div>
                     </div>
                     
