@@ -87,7 +87,6 @@ function Usuario() {
                         <div className={styles.error__content}>
                             <div className={styles.error__message +" "+ styles.message}>
                                 <h1 className={styles.message__title}>Page Not Found</h1>
-                                <p className={styles.message__text}>We're sorry, the page you were looking for isn't found here. The link you followed may either be broken or no longer exists. Please try again, or take a look at our.</p>
                             </div>
                             <div className={styles.error__nav +" "+styles.e_nav}>
                                 <a href="" target="_blanck" className={styles.e_nav__link}></a>

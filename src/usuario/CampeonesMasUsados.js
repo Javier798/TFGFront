@@ -26,6 +26,9 @@ function CampeonesMasUsados(props) {
         fetchData();
 
     }, []);
+    function redirigir(item) {
+      window.location.href="/campeon/"+item.target.id;
+    }
 
 
     if (loading) {
@@ -37,7 +40,7 @@ function CampeonesMasUsados(props) {
         <div id="campeonesMasUsados">
             {campeones.map((campeon, index) => (
                 <div key={index} className="campeon">
-                    <div className="imgCampeon" style={{backgroundImage:"url("+process.env.REACT_APP_IMGPARTIDA+campeon.image.full+")"}} ></div>
+                    <div onClick={redirigir} id={campeon.key} className="imgCampeon" style={{backgroundImage:"url("+process.env.REACT_APP_IMGPARTIDA+campeon.image.full+")"}} ></div>
                     <div className="nombreCampeon">
                         <h1>{campeon.name}</h1>
                     </div>
