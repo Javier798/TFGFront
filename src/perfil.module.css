@@ -248,6 +248,7 @@ input:not(:placeholder-shown)+.boton {
     .menu {
         display: flex;
         cursor: pointer;
+        margin-left: 2rem;
     }
     .inicioSesionHamburguesa{
         display: block;

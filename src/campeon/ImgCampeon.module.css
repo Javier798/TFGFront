@@ -97,3 +97,50 @@
     padding: 3rem;
     border: solid;
 }
+@media (max-width: 1010px) {
+    
+.imgCampeon :nth-child(1){
+    position: absolute;
+    left: -5%;
+    top: -12%;
+    width: 105%;
+    height: 100%;
+    filter: blur(7px);
+}
+.info{
+    width: 80%;
+    display: flex;
+    padding-bottom: 6rem;
+    flex-direction: column;
+    align-items: center;
+}
+.izquierda{
+    display: flex;
+    font-size: 3vw;
+    color: white;
+    padding: 3rem;
+    border: solid;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+.derecha{
+    color: white;
+    font-size: 2rem;
+    padding: 3rem;
+    border: solid;
+}
+.imgCampeon{
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    margin-top: 9rem;
+}
+.imgCampeon :nth-child(2){
+    position: relative;
+    left: 50%;
+    top: 41%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+}

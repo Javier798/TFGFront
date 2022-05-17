@@ -75,3 +75,38 @@
         width: 80%;
     }
 }
+@media (max-width: 1200px){
+    .izquierdaHabilidades{
+        width: 100%;
+        margin-top: 4%;
+    }
+     .imgHabilidades{
+        justify-content: center;
+        padding-left: 6rem;
+        padding-right: 6rem;
+        gap: 1rem;
+     }
+     .conteidoHabilidades{
+        align-items: center;
+        gap: 5rem;
+     }
+     .descHabilidades p{
+        height: 100%;
+        width: 100%;
+        font-size: 3rem;
+        padding: 5rem;
+        text-align: center;
+     }
+     .nomHabilidades{
+        font-size: 11vw;
+        padding-left: 0;
+     }
+     .imgHabilidades img{
+         width: 6rem;
+     }
+     .habilidades{
+         align-items: center;
+         height: fit-content;
+         padding-bottom: 12rem;
+     }
+}

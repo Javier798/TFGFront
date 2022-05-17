@@ -1,15 +1,14 @@
 
 .contenedor{
 	--bg: #e3e4e8;
-	--fg: rgb(187, 12, 12);
-	--input: #ffffff;
-	--primary: #255ff4;
-	--dur: 1s;
-	--fontSize:3rem;
-	margin: auto auto;
+    --fg: rgb(187, 12, 12);
+    --input: #ffffff;
+    --primary: #255ff4;
+    --dur: 1s;
+    --fontSize: 3rem;
+    margin: auto auto;
     height: 100vh;
     background-image: url("http://localhost/TFG/blitz/proyecto/public/fondo/d5ILGO.gif");
-    background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
@@ -18,11 +17,13 @@
     justify-content: center;
     align-items: center;
     color: azure;
-	flex-direction: column;
-	font-size: var(--fontSize);
-	z-index: -1;
+    flex-direction: column;
+    font-size: var(--fontSize);
+    z-index: -1;
+    background-position-x: center;
+    background-size: cover;
  }
-#titulo{
+.titulo{
     color: var(--fg);
 }
 .formuilario, .search, .caret {
@@ -154,5 +155,10 @@
 		width: 1px;
 		height: 1.5em;
 		transform: translate(0,-1em) rotate(-180deg) translate(7.5em,-0.25em);
+	}
+}
+@media(max-width: 600px) {
+	.titulo{
+		font-size: 1.5em;
 	}
 }

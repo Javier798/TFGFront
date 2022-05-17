@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import styles from "./ImgCampeon.module.css";
 
 function ImgCampeon(props) {
-    const [data, setData] = React.useState();
+    
     const [loading, setLoading] = React.useState(true);
     const [champion, setChampion] = React.useState(true);
     React.useEffect(() => {
         async function fetchData() {
-            let summonername = "FlyingGecko048";
+            
 
             setChampion(props.campeon);
             

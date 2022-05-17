@@ -14,14 +14,11 @@ function App() {
           <Link to="/usuario">
             usuario
           </Link>
-          <Link to="/">
+          <Link to="/inicio">
             home
           </Link>
           <Link to="/campeones">
             campeones
-          </Link>
-          <Link to="/inicio">
-            inicio
           </Link>
           <Link to="/campeon">
             campeon
@@ -29,8 +26,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/usuario/:summonername" element={<Usuario/>} />
-          <Route path="/" element={<p>Home</p>} />
-          <Route path="/inicio" element={<Inicio></Inicio>} />
+          <Route path="/" element={<Inicio></Inicio>} />
           <Route path="/campeones/*" element={<Campeones></Campeones>} />
           <Route path="/campeon/:id" element={<Campeon></Campeon>} />
         </Routes>

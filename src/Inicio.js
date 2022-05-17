@@ -24,7 +24,7 @@ function Inicio() {
     return (
 
         <div className={styles.contenedor}>
-            <h1 id="titulo">LEAGUE STATS</h1>
+            <h1 className={styles.titulo}>LEAGUE STATS</h1>
             <form className={styles.formuilario} onSubmit={enviar}>
                 <label className={styles.etiqueta} htmlFor="search">Search</label>
                 <input id="search" className={styles.search} type="search" placeholder="Search..." autoFocus required />
