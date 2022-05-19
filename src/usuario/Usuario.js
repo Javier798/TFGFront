@@ -65,7 +65,7 @@ function Usuario() {
     if (error) {
         return (
             <div>
-                <a href="/inicio">
+                <a href="/">
                     <header className={styles.top_header}></header>
                     <div>
                         <div className={styles.starsec}></div>
